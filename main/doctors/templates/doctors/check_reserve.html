@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    بررسی نوبت
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br><br><br><br><br>
+    {{ visit.doctor.f_name }} {{ visit.doctor.l_name }}<br>
+    {{ visit.reserved_time }}<br>
+     مبلغ {{ visit.cost }}<br>
+    کد پیگیری شما {{ visit.peygiri }}<br>
+
+    <a href="{% url 'home:doctors_list' %}" class="btn btn-success">پرداخت</a>
+
+{% endblock %}

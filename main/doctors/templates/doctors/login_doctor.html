@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+    {% csrf_token %}
+
+    {{ kilideform.as_p }}
+
+        <button type="submit">vorood</button>
+
+    </form>
+
+{% endblock %}

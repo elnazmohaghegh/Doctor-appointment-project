@@ -1,0 +1,17 @@
+{% if messages %}
+
+    <div id="myid">
+        {% for msg in messages %}
+            <h3 {% if msg.tags %} class="alert alert-{{ msg.tags }}" {% endif %}>{{ msg }}</h3>
+        {% endfor %}
+    </div>
+
+    <script>
+    setTimeout (() => {
+        mydiv = document.getElementById('myid')
+
+        mydiv.style.display = 'none'
+    },3000)
+    </script>
+
+{% endif %}

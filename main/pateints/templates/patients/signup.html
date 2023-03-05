@@ -1,0 +1,99 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+    ثبت نام بیمار
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br><br><br>
+
+
+
+    <form class="text-right" method="post" novalidate>
+        {% csrf_token %}
+        <div class="container">
+            <div class="header-title">
+                <h3>ثبت نام کنید</h3>
+            </div>
+
+                <div class="form-control">
+                    <label>نام کاربری</label>
+                    <input type="text" id="username" placeholder="نام و نام خانوادگی" name="username1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="form-control">
+                    <label>کد ملی</label>
+                    <input type="text" id="name-id" placeholder="کد ملی را خود را نمایید" name="national_code1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>نام</label>
+                    <input type="text" id="name-id" placeholder="نام خود را وارد نمایید" name="f_name1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>نام خانوادگی</label>
+                    <input type="text" id="name-id" placeholder="نام خانوادگی خود را وارد نمایید" name="l_name1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>شماره موبایل</label>
+                    <input type="number" id="name-phone" placeholder=" شماره موبایل را خود را نمایید"
+                           name="phone_number1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>ایمیل</label>
+                    <input type="text" id="email" placeholder="پست الکترونیکی" name="email1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>بیمه</label>
+                    <select name="insurance_type" id="insurance_type">
+                        <option value="">بیمه خود را انتخاب نمایید</option>
+                        <option value="1">تامین اجتماعی</option>
+                        <option value="2">سلامت</option>
+                        <option value="3">نیرو مسلح</option>
+                    </select>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>رمزعبور</label>
+                    <input type="password" id="password" placeholder="رمز عبور" name="password1">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+                <div class="form-control">
+                    <label>تکرار رمز عبور</label>
+                    <input type="password" id="password2" placeholder="تکرار رمز عبور" name="password2">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                </div>
+
+        </div>
+
+        <button  type="submit"  class="btn btn-success m-1">ثبت نام</button>
+
+    </form>
+
+{% endblock %}

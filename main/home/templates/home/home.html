@@ -1,0 +1,118 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block css %}
+
+{% endblock %}
+
+
+{% block content %}
+<br>
+ <br>
+
+    <div class="page-hero bg-image overlay-dark" style="background-image: url({% static 'img/bg_image_B7.jpg' %});">
+        <div class="hero-section">
+            <div class="container text-center wow zoomIn">
+                <span class="subhead">بیایید زندگی شما را شادتر کنیم</span>
+                <h1 class="display-4">زندگی سالم</h1>
+                <a href="{% url 'doctors:all_doctors' %}" class="btn btn-primary">دریافت نوبت</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-light">
+        <div class="page-section py-3 mt-md-n5 custom-index">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-secondary text-white">
+                                <span class="mai-chatbubbles-outline"></span>
+                            </div>
+                            <p><span>گفتگو</span> با پزشکان</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-primary text-white">
+                                <span class="mai-shield-checkmark"></span>
+                            </div>
+                            <p><span>مراقبت</span> - از سلامتی خود</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-accent text-white">
+                                <span class="mai-basket"></span>
+                            </div>
+                            <p><span>دریافت</span> - آنلاین دارو</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section pb-0">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+                        <div class="img-place custom-img-1">
+                            <img src="{% static 'img/bg-doctor.png' %}" alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 py-3 wow fadeInUp txt-r">
+                        <h1>به مرکز <a href="#">دنیای سلامتی</a> خوش آمدید</h1>
+                        <p class="text-grey mb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                            است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
+                            می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را
+                            می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و
+                            فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در
+                            ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
+                            اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                        <a href="about.html" class="btn btn-primary">بیشتر بدانید</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-section">
+        <div class="container">
+            <h1 class="text-center mb-5 wow fadeInUp">پزشکان ما</h1>
+
+            <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+
+                {% for dr in doctors %}
+                    <div class="item">
+                        <div class="card-doctor">
+                            <div class="header">
+                                <img src="{{ dr.image.url }}" alt="">
+                                <div class="meta">
+                                    <a href="{% url 'doctors:doctor_details' dr.id %}"><span class="mai-call"></span></a>
+                                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                                </div>
+                            </div>
+                            <div class="body">
+                                    <p class="text-xl mb-0">{{ dr.f_name }} {{ dr.l_name }}</p>
+                                <span class="text-sm text-grey">متخصص {{ dr.takhasos }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+<div class="back-to-top"></div>
+
+<header class="main">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-primary">دنیای</span>-سلامتی</a>
+
+            <form action="{% url 'doctors:dr_search' %}" method="post">
+                {% csrf_token %}
+
+                <div class="input-group input-navbar">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="icon-addon1"><button type="submit"
+                                                                                style="background-color: transparent; outline: none; border: none"><i
+                                class="fa-solid fa-search"></i></button></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="جستجو کنید ..." aria-label="Username"
+                           aria-describedby="icon-addon1" name="search">
+                </div>
+            </form>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
+                    aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupport">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">تماس با ما</a>
+                    </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'patients:logout' %}">خروج</a>
+                        </li>
+                {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'doctors:all_doctors' %}">دکترها</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'patients:profile' %}">پروفایل</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:doctors_list' %}">خانه</a>
+                    </li>
+                    {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="btn btn-primary ml-lg-3" href="{% url 'patients:p_signup' %}">ثبت نام</a>
+                            <a class="btn btn-primary ml-lg-3" href="{% url 'patients:p_login' %}">ورود</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

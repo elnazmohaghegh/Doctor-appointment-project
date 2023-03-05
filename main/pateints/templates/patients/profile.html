@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <strong>name: </strong>{{ profile.f_name }} {{ profile.l_name }}<br>
+    <strong>insurance: </strong>{{ profile.ins_type }}<br>
+    <strong>phone number: </strong>{{ profile.phone_number }}<br>
+    <strong>height: </strong>{{ profile.height }}<br>
+    <strong>weight: </strong>{{ profile.weight }}<br>
+    <strong>national code: </strong>{{ profile.national_code }}<br><br><br>
+
+    <a href="{% url 'patients:reserved_visits' %}" class="btn btn-info">نوبت های رزرو شده</a>
+
+{% endblock %}

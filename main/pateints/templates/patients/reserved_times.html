@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="m-3 p-3">
+        {% for r in reservs %}
+            <p><strong>{{ r.doctor.f_name }} {{ r.doctor.l_name }}</strong></p>
+            <strong>{{ r.reserved_time }}</strong><br>
+            <hr>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

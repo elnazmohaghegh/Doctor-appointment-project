@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+
+<div class="d-flex justify-content-around align-items-center p-5 m-2">
+        {% for dr in found %}
+     <div class="card d-flex justify-content-around align-items-center m-3" style="width: 18rem">
+        <img class="card-img-top" src="{{ dr.image.url }}" alt="{{ dr.f_name }}">
+            <div class="card-body">
+                {{ dr.takhasos }}<br>
+                <strong>{{ dr.f_name }} {{ dr.l_name }}</strong><br>
+            </div>
+                <div class="card-body">
+                   <a href="{% url 'doctors:doctor_details' dr.id %}" class="btn btn-primary">رزرو نوبت</a>
+                </div>
+     </div>
+        {% endfor %}
+</div>
+{% endblock %}
